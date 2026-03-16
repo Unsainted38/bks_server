@@ -45,7 +45,7 @@ void dumpAscii(const QByteArray &data) {
         } else if(b == '\n') {
             out += "\\n";
         } else {
-            out += QString("\\x%1").arg(b, 2, 16, QLatin1Char('0'));
+            out += QString("\\x%1").arg((unsigned char)b, 2, 16, QLatin1Char('0'));
         }
     }
 
@@ -81,7 +81,7 @@ QByteArray MShPRCommand::makeReadCommand() {
         }
     }
 
-    qDebug() << debugStr;
+    //qDebug() << debugStr;
     //dumpAscii(packet);
     return packet;
 }

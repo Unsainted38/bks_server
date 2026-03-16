@@ -18,13 +18,13 @@ enum BksBaud {
 
 
 struct BKS_COMMANDS {
-    inline static const QString STATUS_CMD = "STA";
-    inline static const QString FC_LOW_FREQ_CMD = "FC1";
-    inline static const QString FC_HIGH_FREQ_CMD = "FC2";
-    inline static const QString FX_LOW_FREQ_CMD = "FX1";
-    inline static const QString FX_HIGH_FREQ_CMD = "FX2";
-    inline static const QString ADDRESS_CMD = "ADR";
-    inline static const QString BAUD_CMD = "BRG";
+    static constexpr const char *STATUS_CMD = "STA";
+    static constexpr const char *FC_LOW_FREQ_CMD = "FC1";
+    static constexpr const char *FC_HIGH_FREQ_CMD = "FC2";
+    static constexpr const char *FX_LOW_FREQ_CMD = "FX1";
+    static constexpr const char *FX_HIGH_FREQ_CMD = "FX2";
+    static constexpr const char *ADDRESS_CMD = "ADR";
+    static constexpr const char *BAUD_CMD = "BRG";
 };
 class BksDevice : public QObject {
     Q_OBJECT

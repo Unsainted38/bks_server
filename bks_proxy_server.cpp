@@ -8,7 +8,7 @@ BksProxyServer::BksProxyServer(QString configPath, QString section, QObject *par
     transport = AbstractNetworkTransportFactory::getInstance(
                     QCoreApplication::applicationDirPath() +
                     "/transport/config.ini", "BksTransport");
-    locker = new NetworkTransportLocker(1000, 40);
+    locker = new NetworkTransportLocker(1000, 100);
     server = new QTcpServer(this);
     requester = new SerialCircularRequester(transport, locker);
     device = new BksDevice(requester, QCoreApplication::applicationDirPath() + "/device/config.ini", "BksDevice");
@@ -40,10 +40,12 @@ void BksProxyServer::setBksDevice(BksDevice *implement) {
 void BksProxyServer::loadConfig() {
     QSettings settings(configPath, QSettings::IniFormat);
     settings.beginGroup(section);
-    ServerAddress = QHostAddress(settings.value("HostIp", QHostAddress::LocalHost).toString());
+    ServerAddress = QHostAddress(settings.value("HostIp", "127.0.0.1").toString());
     ListenIp = QHostAddress(settings.value("ListenIp", QHostAddress::Any).toString());
     port = settings.value("Port", 6666).toUInt();
     name = settings.value("Name", "tcp_proxy").toString();
+    qDebug() << configPath;
+    qDebug() << "BksProxyServer on port:" << port;
     settings.endGroup();
 }
 

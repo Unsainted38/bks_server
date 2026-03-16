@@ -17,12 +17,12 @@
 const quint8 HEADER = 0x55;
 
 struct BKS_CMD {
-    inline static const quint8 FX1 = 0x01;
-    inline static const quint8 FX2 = 0x02;
-    inline static const quint8 FC1 = 0x03;
-    inline static const quint8 FC2 = 0x04;
-    inline static const quint8 BAUD = 0x05;
-    inline static const quint8 STATUS = 0x06;
+    static const quint8 FX1 = 0x01;
+    static const quint8 FX2 = 0x02;
+    static const quint8 FC1 = 0x03;
+    static const quint8 FC2 = 0x04;
+    static const quint8 BAUD = 0x05;
+    static const quint8 STATUS = 0x06;
 };
 
 class BksProxyServer : public QObject {

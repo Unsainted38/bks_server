@@ -5,8 +5,9 @@ greaterThan(QT_MAJOR_VERSION, 4) {
     QT += gui
 }
 QT       += core network
+QT -= gui
 CONFIG   += console
-CONFIG   += c++17
+CONFIG   += c++14
 CONFIG -= app_bundle
 
 include(/home/user/develop/host/projects/common/libs/app.pri)
