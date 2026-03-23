@@ -110,7 +110,7 @@ void BksDevice::processData(QString addr, QMap<QString, int> fieldsMap) {
     m_FC2 = fieldsMap[BKS_COMMANDS::FC_HIGH_FREQ_CMD];
     m_FX1 = fieldsMap[BKS_COMMANDS::FX_LOW_FREQ_CMD];
     m_FX2 = fieldsMap[BKS_COMMANDS::FX_HIGH_FREQ_CMD];
-    m_timer->start(1000);
+    m_timer->start(5000);
 }
 
 void BksDevice::onTimer() {

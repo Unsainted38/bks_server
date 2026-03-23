@@ -146,11 +146,12 @@ void BksProxyServer::makeResponse(quint8 cmdId) {
             break;
 
         case BKS_CMD::STATUS:
-            out << (quint8)4;
+            out << (quint8)5;
             out << device->getFC1()
                 << device->getFC2()
                 << device->getFX1()
-                << device->getFX2();
+                << device->getFX2()
+                << static_cast<quint8>(device->getStatusOnline());
             break;
 
         default:
