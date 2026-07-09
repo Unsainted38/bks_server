@@ -75,3 +75,6 @@ coverage/
 # Qt Installer Framework
 packages/*/data/*.7z
 packages/*/data/*.tar
+
+#Config files
+config.ini
